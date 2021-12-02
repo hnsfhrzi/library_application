@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Sen'),
       home: const mainMenu(),
+      title: 'Library apps',
     );
   }
 }
