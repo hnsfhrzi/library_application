@@ -29,6 +29,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  carousel_slider: ^4.0.0
+  smooth_page_indicator: ^1.0.0+2
+  fancy_bottom_navigation: ^0.3.3
 
 
   # The following adds the Cupertino Icons font to your application.
