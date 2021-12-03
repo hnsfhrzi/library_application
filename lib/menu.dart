@@ -1,8 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:library_application/previewcerpen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import 'bottomnavbar.dart';
 
 class mainMenu extends StatelessWidget {
   const mainMenu({Key? key}) : super(key: key);
@@ -115,6 +117,7 @@ class mainMenu extends StatelessWidget {
                       ),
                     ),
                   ),
+                  SizedBox(height: 20,),
                 ],
               ),
             ),
@@ -223,84 +226,60 @@ class ListRecent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Container(
-          height: 160,
-          width: 130,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.only(
-                top: 20, left: 5, right: 5),
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Column(
-                  children: [
-                    Container(
-                      height: 70,
-                      width: 70,
-                      decoration: BoxDecoration(
-                        color: Colors.grey,
-                        shape: BoxShape.circle,
-                      ),
+    return MaterialButton(
+      child: Container(
+        height: 160,
+        width: 130,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.only(
+              top: 20, left: 5, right: 5),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Column(
+                children: [
+                  Container(
+                    height: 70,
+                    width: 70,
+                    decoration: BoxDecoration(
+                      color: Colors.grey,
+                      shape: BoxShape.circle,
                     ),
-                    SizedBox(height: 8),
-                    Text(
-                      'Title',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w300,
-                      ),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    'Title',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w300,
                     ),
-                    SizedBox(height: 5),
-                    Text(
-                      'Keterangan Baca',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w300,
-                      ),
-                    )
-                  ],
-                )
-              ],
-            ),
+                  ),
+                  SizedBox(height: 5),
+                  Text(
+                    'Keterangan Baca',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  )
+                ],
+              )
+            ],
           ),
         ),
-        SizedBox(width: 10),
-      ],
+      ),
+      onPressed: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>PreviewCerpenPg()));
+      },
     );
   }
 }
 
-class BottomNav extends StatefulWidget {
-  const BottomNav({Key? key}) : super(key: key);
 
-  @override
-  _BottomNavState createState() => _BottomNavState();
-}
-
-class _BottomNavState extends State<BottomNav> {
-  @override
-  Widget build(BuildContext context) {
-    return FancyBottomNavigation(
-      activeIconColor: Colors.white,
-      circleColor: Color(0xFFB7CF67),
-      inactiveIconColor: Color(0xFF4F4F4F),
-      tabs: [
-        TabData(iconData: Icons.home, title: "Home"),
-        TabData(iconData: CupertinoIcons.book_solid, title: "List Cerita"),
-        TabData(iconData: Icons.search, title: "Search"),
-        TabData(iconData: CupertinoIcons.bookmark_solid, title: "Bookmark"),
-        //TabData(iconData: Icons.settings, title: "Setting")
-      ],
-      onTabChangedListener: (position) {},
-    );
-  }
-}
 
 
 
