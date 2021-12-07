@@ -21,9 +21,15 @@ class PreviewCerpenPg extends StatelessWidget {
           ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Colors.black,),
+
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => MyApp()));
+
           },
         ),
       ),
