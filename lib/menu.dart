@@ -1,4 +1,10 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:library_application/previewcerpen.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import 'bottomnavbar.dart';
 
 class mainMenu extends StatelessWidget {
   const mainMenu({Key? key}) : super(key: key);
@@ -6,7 +12,29 @@ class mainMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-<<<<<<< Updated upstream
+
+      appBar: AppBar(
+        backgroundColor: Color(0xFFFDEDB8),
+        elevation: 0,
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.settings, size: 30, color: Colors.black,),
+            onPressed: () {},
+          ),
+        ],
+        title: Text(
+          //bagian nama aplikasi
+          'InsCera',
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 35,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+      bottomNavigationBar: BottomNav(),
+
       body: SafeArea(
         child: Container(
           //Bagian awal untuk masukin background
@@ -17,7 +45,7 @@ class mainMenu extends StatelessWidget {
                 fit: BoxFit.cover),
           ),
           //kode background sampai sini
-=======
+
       appBar: AppBar(
         backgroundColor: Color(0xFFFDEDB8),
         elevation: 0,
@@ -53,12 +81,12 @@ class mainMenu extends StatelessWidget {
         ),
         //kode background sampai sini
         child: SingleChildScrollView(
->>>>>>> Stashed changes
+
           child: Container(
             alignment: Alignment.topCenter,
             child: Column(
               children: [
-<<<<<<< Updated upstream
+
                 Text(
                   //bagian nama aplikasi
                   'InsCera',
@@ -67,8 +95,7 @@ class mainMenu extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-=======
->>>>>>> Stashed changes
+
                 SizedBox(height: 10),
                 Text(
                   //bagian menyambut pengguna
@@ -79,7 +106,7 @@ class mainMenu extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 10),
-<<<<<<< Updated upstream
+
                 Container(
                   //isi berita atau info cerita paling baru
                   height: 160,
@@ -90,22 +117,35 @@ class mainMenu extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20),
-=======
+
                 //isi berita atau info cerita paling baru
                 HotNewsSlider(),
                 //SizedBox(height: 20),
->>>>>>> Stashed changes
+
                 Container(
                   //tulisan genre
                   padding: EdgeInsets.only(left: 15),
                   alignment: AlignmentDirectional.centerStart,
                   child: Text(
                     'Genre',
+
+          child: SingleChildScrollView(
+            child: Container(
+              alignment: Alignment.topCenter,
+              child: Column(
+                children: [
+
+                  SizedBox(height: 10),
+                  Text(
+                    //bagian menyambut pengguna
+                    "Welcome 😀, let's read something!",
+
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
+
                 ),
                 SizedBox(height: 5),
                 Container(
@@ -115,7 +155,7 @@ class mainMenu extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
-<<<<<<< Updated upstream
+
                         Container(
                           height: 90,
                           width: 130,
@@ -142,27 +182,46 @@ class mainMenu extends StatelessWidget {
                             borderRadius: BorderRadius.circular(8),
                           ),
                         ),
-=======
+
                         ListGenre(),
                         ListGenre(),
                         ListGenre(),
->>>>>>> Stashed changes
+
                       ],
+
+                  SizedBox(height: 10),
+                  //isi berita atau info cerita paling baru
+                  HotNewsSlider(),
+                  //SizedBox(height: 20),
+                  Container(
+                    //tulisan genre
+                    padding: EdgeInsets.only(left: 15),
+                    alignment: AlignmentDirectional.centerStart,
+                    child: Text(
+                      'Genre',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                      ),
+
                     ),
                   ),
-                ),
-                SizedBox(height: 10),
-                Container(
-                  //tulisan Recently Read
-                  padding: EdgeInsets.only(left: 15),
-                  alignment: AlignmentDirectional.centerStart,
-                  child: Text(
-                    'Recently Read',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500,
+                  SizedBox(height: 5),
+                  Container(
+                    //kumpulan genre
+                    padding: EdgeInsets.only(left: 15, right: 15),
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          ListGenre(),
+                          ListGenre(),
+                          ListGenre(),
+                        ],
+                      ),
                     ),
                   ),
+
                 ),
                 SizedBox(height: 5),
                 Container(
@@ -172,7 +231,7 @@ class mainMenu extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
-<<<<<<< Updated upstream
+
                         Container(
                           height: 160,
                           width: 130,
@@ -310,22 +369,54 @@ class mainMenu extends StatelessWidget {
                             ),
                           ),
                         ),
-=======
+
                         ListRecent(),
                         ListRecent(),
                         ListRecent(),
->>>>>>> Stashed changes
+
                       ],
                     ),
                   ),
                 ),
-<<<<<<< Updated upstream
-=======
+
                 SizedBox(
                   height: 20,
                 ),
->>>>>>> Stashed changes
+
               ],
+
+                  SizedBox(height: 10),
+                  Container(
+                    //tulisan Recently Read
+                    padding: EdgeInsets.only(left: 15),
+                    alignment: AlignmentDirectional.centerStart,
+                    child: Text(
+                      'Recently Read',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 5),
+                  Container(
+                    padding: EdgeInsets.only(left: 15, right: 15),
+                    alignment: AlignmentDirectional.centerStart,
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          ListRecent(),
+                          ListRecent(),
+                          ListRecent(),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+                ],
+              ),
+
             ),
           ),
         ),
@@ -333,8 +424,7 @@ class mainMenu extends StatelessWidget {
     );
   }
 }
-<<<<<<< Updated upstream
-=======
+
 
 //class untuk slider
 class HotNewsSlider extends StatefulWidget {
@@ -406,6 +496,7 @@ class _HotNewsSliderState extends State<HotNewsSlider> {
   }
 }
 
+
 //class list genre
 class ListGenre extends StatelessWidget {
   const ListGenre({Key? key}) : super(key: key);
@@ -414,6 +505,7 @@ class ListGenre extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
+
         Container(
           height: 90,
           width: 130,
@@ -422,6 +514,7 @@ class ListGenre extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
           ),
         ),
+
         SizedBox(width: 10),
       ],
     );
@@ -443,7 +536,10 @@ class ListRecent extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(top: 20, left: 5, right: 5),
+
+          padding: const EdgeInsets.only(
+              top: 20, left: 5, right: 5),
+
           child: Stack(
             alignment: Alignment.center,
             children: [
@@ -480,10 +576,12 @@ class ListRecent extends StatelessWidget {
         ),
       ),
       onPressed: () {
+
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => PreviewCerpenPg()));
+
       },
     );
   }
 }
->>>>>>> Stashed changes
+
