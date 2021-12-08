@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Sen'),
-      home: const favoritePage(),
+      home: const mainMenu(),
       title: 'Library apps',
     );
   }
