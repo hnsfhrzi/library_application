@@ -3,8 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:library_application/previewcerpen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+<<<<<<< Updated upstream:lib/menu.dart
 
 import 'bottomnavbar.dart';
+=======
+>>>>>>> Stashed changes:lib/PageScreen/menu.dart
 
 class mainMenu extends StatelessWidget {
   const mainMenu({Key? key}) : super(key: key);
@@ -12,16 +15,20 @@ class mainMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Color(0xFFFDEDB8),
+        backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
+<<<<<<< Updated upstream:lib/menu.dart
         actions: [
           IconButton(
             icon: Icon(Icons.settings, size: 30, color: Colors.black,),
             onPressed: () {},
           ),
         ],
+=======
+>>>>>>> Stashed changes:lib/PageScreen/menu.dart
         title: Text(
           //bagian nama aplikasi
           'InsCera',
@@ -32,18 +39,19 @@ class mainMenu extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNav(),
-      body: SafeArea(
-        child: Container(
+      //bottomNavigationBar: BottomNav(),
+      body: Container(
           //Bagian awal untuk masukin background
           constraints: BoxConstraints.expand(),
           decoration: BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("assets/images/Mainmenu.jpg"),
                 fit: BoxFit.cover),
+            color: Color(0xFFFDEDB8),
           ),
           //kode background sampai sini
           child: SingleChildScrollView(
+            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height/8),
             child: Container(
               alignment: Alignment.topCenter,
               child: Column(
@@ -117,14 +125,17 @@ class mainMenu extends StatelessWidget {
                       ),
                     ),
                   ),
+<<<<<<< Updated upstream:lib/menu.dart
                   SizedBox(height: 20,),
+=======
+                  SizedBox(height: 20),
+>>>>>>> Stashed changes:lib/PageScreen/menu.dart
                 ],
               ),
             ),
           ),
         ),
-      ),
-    );
+      );
   }
 }
 

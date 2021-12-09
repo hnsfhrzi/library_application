@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:library_application/main.dart';
-import 'package:library_application/menu.dart';
+import 'package:library_application/PageScreen/menu.dart';
 
 class PreviewCerpenPg extends StatelessWidget {
   const PreviewCerpenPg({Key? key}) : super(key: key);
