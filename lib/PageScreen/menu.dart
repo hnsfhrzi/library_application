@@ -3,11 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:library_application/previewcerpen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-<<<<<<< Updated upstream:lib/menu.dart
-
-import 'bottomnavbar.dart';
-=======
->>>>>>> Stashed changes:lib/PageScreen/menu.dart
 
 class mainMenu extends StatelessWidget {
   const mainMenu({Key? key}) : super(key: key);
@@ -20,15 +15,12 @@ class mainMenu extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
-<<<<<<< Updated upstream:lib/menu.dart
         actions: [
           IconButton(
             icon: Icon(Icons.settings, size: 30, color: Colors.black,),
             onPressed: () {},
           ),
         ],
-=======
->>>>>>> Stashed changes:lib/PageScreen/menu.dart
         title: Text(
           //bagian nama aplikasi
           'InsCera',
@@ -125,15 +117,11 @@ class mainMenu extends StatelessWidget {
                       ),
                     ),
                   ),
-<<<<<<< Updated upstream:lib/menu.dart
                   SizedBox(height: 20,),
-=======
                   SizedBox(height: 20),
->>>>>>> Stashed changes:lib/PageScreen/menu.dart
                 ],
               ),
-            ),
-          ),
+            ),          ),
         ),
       );
   }
