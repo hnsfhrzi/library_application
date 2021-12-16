@@ -3,7 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:library_application/previewcerpen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'bottomnavbar.dart';
+
+import 'cerpen/cerpens.dart';
 
 class mainMenu extends StatelessWidget {
   const mainMenu({Key? key}) : super(key: key);
@@ -15,16 +16,6 @@ class mainMenu extends StatelessWidget {
         backgroundColor: Color(0xFFFDEDB8),
         elevation: 0,
         centerTitle: true,
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.settings,
-              size: 30,
-              color: Colors.black,
-            ),
-            onPressed: () {},
-          ),
-        ],
         title: Text(
           //bagian nama aplikasi
           'InsCera',
@@ -35,7 +26,7 @@ class mainMenu extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNav(),
+      //bottomNavigationBar: BottomNav(),
       body: SafeArea(
         child: Container(
           //Bagian awal untuk masukin background
@@ -83,9 +74,9 @@ class mainMenu extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          ListGenre(),
-                          ListGenre(),
-                          ListGenre(),
+                          ListGenre(url: 'https://i.postimg.cc/tTtXqcd2/Frame-4.png',),
+                          ListGenre(url: 'https://i.postimg.cc/7L7kYR1j/Frame-5.png',),
+                          ListGenre(url: 'https://i.postimg.cc/cHBGf8bm/Frame-6.png',),
                         ],
                       ),
                     ),
@@ -118,6 +109,7 @@ class mainMenu extends StatelessWidget {
                       ),
                     ),
                   ),
+                  SizedBox(height: 20,),
                 ],
               ),
             ),
@@ -200,17 +192,20 @@ class _HotNewsSliderState extends State<HotNewsSlider> {
 
 //class list genre
 class ListGenre extends StatelessWidget {
-  const ListGenre({Key? key}) : super(key: key);
+  const ListGenre({Key? key, required this.url}) : super(key: key);
+  final String url;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return Row(
       children: [
         Container(
-          height: 90,
-          width: 130,
+          height: 75,
+          width: 186,
           decoration: BoxDecoration(
-            color: Colors.grey[400],
+            image: DecorationImage(
+              image: NetworkImage(url),
+              fit: BoxFit.fill),
             borderRadius: BorderRadius.circular(8),
           ),
         ),
@@ -245,13 +240,16 @@ class ListRecent extends StatelessWidget {
                     height: 70,
                     width: 70,
                     decoration: BoxDecoration(
-                      color: Colors.grey,
                       shape: BoxShape.circle,
+                      image: DecorationImage(
+                          image: NetworkImage(cerpens[0].urlimg.toString()),
+                          fit: BoxFit.cover
+                      ),
                     ),
                   ),
                   SizedBox(height: 8),
                   Text(
-                    'Title',
+                    cerpens[0].title.toString(),
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w300,
