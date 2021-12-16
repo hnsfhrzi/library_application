@@ -15,11 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Sen'),
-<<<<<<< Updated upstream
-      home: const favoritePage(),
-=======
       home: const libraryPage(),
->>>>>>> Stashed changes
       title: 'Library apps',
     );
   }
