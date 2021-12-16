@@ -1,8 +1,9 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:library_application/previewcerpen.dart';
+
+import 'cerpen/cerpens.dart';
 
 class libraryPage extends StatefulWidget {
   const libraryPage({Key? key}) : super(key: key);
@@ -12,7 +13,7 @@ class libraryPage extends StatefulWidget {
 }
 
 class _libraryPageState extends State<libraryPage> {
-  int c = "A".codeUnitAt(0);
+  int start = "A".codeUnitAt(0);
   int end = "Z".codeUnitAt(0);
 
   @override
@@ -56,7 +57,7 @@ class _libraryPageState extends State<libraryPage> {
                   child: Row(
                     //ShortCutLibrary
                     children: [
-                      for (var i = c; i <= end; i++)
+                      for (var i = start; i <= end; i++)
                         listShortCut(alpha: String.fromCharCode(i))
                     ],
                   ),
@@ -65,7 +66,7 @@ class _libraryPageState extends State<libraryPage> {
                 Column(
                   //Kumpulan Kotak Hijau
                   children: [
-                    for (var i = c; i <= end; i++)
+                    for (var i = start; i <= end; i++)
                       greenBoxCont(alpha: String.fromCharCode(i))
                   ],
                 )
@@ -80,34 +81,45 @@ class _libraryPageState extends State<libraryPage> {
 
 //Thumbnail Cerita Anak
 class listLibrary extends StatelessWidget {
-  const listLibrary({Key? key}) : super(key: key);
+  const listLibrary({Key? key, required this.url, required this.title}) : super(key: key);
+  final String url;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Column(
-        children: [
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: 190,
-            decoration: BoxDecoration(
-              color: Colors.grey,
-              borderRadius: BorderRadius.circular(10),
+    return MaterialButton(
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Column(
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 190,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                image: DecorationImage(
+                    image: NetworkImage(url),
+                    fit: BoxFit.cover
+                )
+              ),
             ),
-          ),
-          SizedBox(height: 5),
-          Text(
-            'title',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w400,
+            SizedBox(height: 5),
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w400,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
+      onPressed: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => PreviewCerpenPg()));
+      },
     );
   }
 }
@@ -155,6 +167,8 @@ class greenBoxCont extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final comprTitlestart = cerpens.where((cerpen) => cerpen.title.startsWith(alpha));
+
     return Container(
       margin: EdgeInsets.only(bottom: 15),
       constraints: new BoxConstraints(
@@ -196,10 +210,10 @@ class greenBoxCont extends StatelessWidget {
                 padding: EdgeInsets.all(20),
                 childAspectRatio: 5 / 8,
                 children: [
-                  listLibrary(),
-                  listLibrary(),
-                  listLibrary(),
-                  listLibrary(),
+                  listLibrary(title: cerpens[0].title, url: cerpens[0].urlimg,),
+                  //listLibrary(),
+                  //listLibrary(),
+                  //listLibrary(),
                 ],
               ),
             ),
