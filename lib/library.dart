@@ -18,8 +18,9 @@ class _libraryPageState extends State<libraryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Color(0xFFFDEDB8),
+        backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
         title: Text(
@@ -37,11 +38,15 @@ class _libraryPageState extends State<libraryPage> {
         constraints: BoxConstraints.expand(),
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/images/Mainmenu.jpg'),
+              image: AssetImage('assets/images/Background.jpg'),
               fit: BoxFit.cover),
         ),
         child: Padding(
-          padding: EdgeInsets.only(left: 25, right: 25, top: 20, bottom: 30),
+          padding: EdgeInsets.only(
+              right: MediaQuery.of(context).size.width/17, left: MediaQuery.of(context).size.width/17,
+              top: MediaQuery.of(context).size.height/8, bottom: MediaQuery.of(context).size.height/17
+          ),
+          //padding: EdgeInsets.only(left: 25, right: 25, top: 90, bottom: 30),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

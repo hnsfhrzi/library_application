@@ -1,7 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:library_application/cerpen/cerpens.dart';
+import 'package:library_application/cerpen/readcerpen.dart';
 import 'package:library_application/main.dart';
-import 'package:library_application/menu.dart';
 
 class PreviewCerpenPg extends StatelessWidget {
   const PreviewCerpenPg({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class PreviewCerpenPg extends StatelessWidget {
         backgroundColor: Color(0xFFFDEDB8),
         centerTitle: true,
         title: Text(
-          'Title Cerpen',
+          cerpens[0].title.toString(),
           style: TextStyle(
             color: Colors.black,
             fontSize: 24,
@@ -43,7 +44,10 @@ class PreviewCerpenPg extends StatelessWidget {
               width: 250,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: Colors.grey,
+                image: DecorationImage(
+                    image: NetworkImage(cerpens[0].urlimg.toString()),
+                    fit: BoxFit.cover
+                ),
               ),
             ),
           ),
@@ -60,12 +64,12 @@ class PreviewCerpenPg extends StatelessWidget {
           Container(
             margin: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
             child: AutoSizeText(
-              'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+              cerpens[0].fullcerpen.toString(),
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
               ),
-              maxLines: 15,
+              maxLines: 11,
               overflow: TextOverflow.fade,
             ),
           ),
@@ -96,7 +100,10 @@ class PreviewCerpenPg extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0)),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => readingPage()));
+              },
             ),
           ),
           SizedBox(height: 10),
