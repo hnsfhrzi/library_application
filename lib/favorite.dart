@@ -32,7 +32,7 @@ class favoritePage extends StatelessWidget {
           //Kotak Warna hijau
           padding: EdgeInsets.only(left: 25, right: 25, top: 30, bottom: 30),
           child: Container(
-            width: 250,
+            width: double.infinity,
             height: 300,
             decoration: BoxDecoration(
               color: Colors.white.withOpacity(0.55),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:library_application/bottomnavbar.dart';
 import 'package:library_application/favorite.dart';
+import 'package:library_application/library.dart';
 import 'package:library_application/menu.dart';
 
 void main() {
@@ -14,7 +15,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Sen'),
+<<<<<<< Updated upstream
       home: const favoritePage(),
+=======
+      home: const libraryPage(),
+>>>>>>> Stashed changes
       title: 'Library apps',
     );
   }
