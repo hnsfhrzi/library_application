@@ -5,7 +5,11 @@ import 'package:library_application/cerpen/readcerpen.dart';
 import 'package:library_application/main.dart';
 
 class PreviewCerpenPg extends StatelessWidget {
-  const PreviewCerpenPg({Key? key}) : super(key: key);
+  final String title;
+  final String fullcrpn;
+  final String urlimg;
+
+  const PreviewCerpenPg({Key? key, required this.title, required this.fullcrpn, required this.urlimg}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +18,7 @@ class PreviewCerpenPg extends StatelessWidget {
         backgroundColor: Color(0xFFFDEDB8),
         centerTitle: true,
         title: Text(
-          cerpens[0].title.toString(),
+          title,
           style: TextStyle(
             color: Colors.black,
             fontSize: 24,
@@ -45,7 +49,7 @@ class PreviewCerpenPg extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 image: DecorationImage(
-                    image: NetworkImage(cerpens[0].urlimg.toString()),
+                    image: NetworkImage(urlimg),
                     fit: BoxFit.cover
                 ),
               ),
@@ -64,7 +68,7 @@ class PreviewCerpenPg extends StatelessWidget {
           Container(
             margin: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
             child: AutoSizeText(
-              cerpens[0].fullcerpen.toString(),
+              fullcrpn,
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
@@ -102,7 +106,7 @@ class PreviewCerpenPg extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => readingPage()));
+                    MaterialPageRoute(builder: (context) => readingPage(title: title, fuller: fullcrpn, urlimg: urlimg,)));
               },
             ),
           ),

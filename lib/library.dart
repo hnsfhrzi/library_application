@@ -81,12 +81,14 @@ class _libraryPageState extends State<libraryPage> {
 
 //Thumbnail Cerita Anak
 class listLibrary extends StatelessWidget {
-  const listLibrary({Key? key, required this.url, required this.title}) : super(key: key);
+  const listLibrary({Key? key, required this.url, required this.title, required this.fuller}) : super(key: key);
   final String url;
   final String title;
+  final String fuller;
 
   @override
   Widget build(BuildContext context) {
+
     return MaterialButton(
       child: Container(
         decoration: BoxDecoration(
@@ -106,11 +108,13 @@ class listLibrary extends StatelessWidget {
               ),
             ),
             SizedBox(height: 5),
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w400,
+            FittedBox(
+              child: Text(
+                title,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
             ),
           ],
@@ -118,7 +122,7 @@ class listLibrary extends StatelessWidget {
       ),
       onPressed: () {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => PreviewCerpenPg()));
+            MaterialPageRoute(builder: (context) => PreviewCerpenPg(urlimg: url, title: title, fullcrpn: fuller,)));
       },
     );
   }
@@ -171,12 +175,8 @@ class greenBoxCont extends StatelessWidget {
 
     return Container(
       margin: EdgeInsets.only(bottom: 15),
-      constraints: new BoxConstraints(
-        minHeight: 50,
-        minWidth: double.infinity,
-        maxHeight: 590,
-        maxWidth: double.infinity,
-      ),
+      width: double.infinity,
+      height: comprTitlestart.isNotEmpty == true ? (comprTitlestart.length > 2 ? 590 : 350) : 100,
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.55),
         borderRadius: BorderRadius.circular(30),
@@ -209,12 +209,11 @@ class greenBoxCont extends StatelessWidget {
                 crossAxisSpacing: 15,
                 padding: EdgeInsets.all(20),
                 childAspectRatio: 5 / 8,
-                children: [
-                  listLibrary(title: cerpens[0].title, url: cerpens[0].urlimg,),
-                  //listLibrary(),
-                  //listLibrary(),
-                  //listLibrary(),
-                ],
+                children: comprTitlestart.map((cerpen) => listLibrary(
+                    url: cerpen.urlimg,
+                    title: cerpen.title,
+                    fuller: cerpen.fullcerpen
+                )).toList(),
               ),
             ),
           ),
