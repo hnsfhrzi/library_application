@@ -101,11 +101,11 @@ class mainMenu extends StatelessWidget {
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
-                        children: [
-                          ListRecent(),
-                          ListRecent(),
-                          ListRecent(),
-                        ],
+                        children: cerpens.map((crpn) => ListRecent(
+                            title: crpn.title,
+                            url: crpn.urlimg,
+                            fullcrpn: crpn.fullcerpen,
+                        )).toList(),
                       ),
                     ),
                   ),
@@ -217,7 +217,11 @@ class ListGenre extends StatelessWidget {
 
 //class list recent
 class ListRecent extends StatelessWidget {
-  const ListRecent({Key? key}) : super(key: key);
+  final String title;
+  final String url;
+  final String fullcrpn;
+
+  const ListRecent({Key? key, required this.title, required this.url, required this.fullcrpn}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -242,14 +246,14 @@ class ListRecent extends StatelessWidget {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
-                          image: NetworkImage(cerpens[0].urlimg.toString()),
+                          image: NetworkImage(url),
                           fit: BoxFit.cover
                       ),
                     ),
                   ),
                   SizedBox(height: 8),
                   Text(
-                    cerpens[0].title.toString(),
+                    title,
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w300,
@@ -271,7 +275,7 @@ class ListRecent extends StatelessWidget {
       ),
       onPressed: () {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => PreviewCerpenPg()));
+            MaterialPageRoute(builder: (context) => PreviewCerpenPg(urlimg: url, fullcrpn: fullcrpn, title: title,)));
       },
     );
   }

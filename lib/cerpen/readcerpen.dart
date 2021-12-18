@@ -4,7 +4,10 @@ import 'package:library_application/cerpen/cerpens.dart';
 import '../previewcerpen.dart';
 
 class readingPage extends StatefulWidget {
-  const readingPage({Key? key}) : super(key: key);
+  const readingPage({Key? key, required this.title, required this.urlimg, required this.fuller}) : super(key: key);
+  final String title;
+  final String urlimg;
+  final String fuller;
 
   @override
   _readingPageState createState() => _readingPageState();
@@ -38,7 +41,7 @@ class _readingPageState extends State<readingPage> {
         backgroundColor: Color(0xFFFDEDB8),
         centerTitle: true,
         title: Text(
-          cerpens[0].title.toString(),
+          widget.title,
           style: TextStyle(
             color: Colors.black,
             fontSize: 24,
@@ -49,7 +52,7 @@ class _readingPageState extends State<readingPage> {
           icon: Icon(Icons.arrow_back_ios, color: Colors.black,),
           onPressed: () {
             Navigator.pop(context,
-                MaterialPageRoute(builder: (context) => PreviewCerpenPg()));
+                MaterialPageRoute(builder: (context) => PreviewCerpenPg(title: widget.title, urlimg: widget.urlimg, fullcrpn: widget.fuller,)));
           },
         ),
         actions: [
@@ -77,7 +80,7 @@ class _readingPageState extends State<readingPage> {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             image: DecorationImage(
-                                image: NetworkImage(cerpens[0].urlimg.toString()),
+                                image: NetworkImage(widget.urlimg),
                                 fit: BoxFit.cover
                             )
                         ),
@@ -86,7 +89,7 @@ class _readingPageState extends State<readingPage> {
                     Container(
                       margin: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                       child: AutoSizeText(
-                        cerpens[0].fullcerpen.toString(),
+                        widget.fuller,
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
