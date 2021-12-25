@@ -1,6 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:library_application/cerpen/cerpens.dart';
+import 'package:library_application/cerpen/settingsave.dart';
 import '../previewcerpen.dart';
 
 class readingPage extends StatefulWidget {
@@ -91,7 +91,7 @@ class _readingPageState extends State<readingPage> {
                       child: AutoSizeText(
                         widget.fuller,
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: saveset[0].currentvaluefont,
                           fontWeight: FontWeight.w500,
                         ),
                         maxLines: 200,

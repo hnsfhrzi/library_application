@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:library_application/library.dart';
+import 'package:library_application/search.dart';
 import 'package:library_application/setting.dart';
 
 import 'favorite.dart';
@@ -20,7 +21,8 @@ class _HomePgState extends State<HomePg> {
     mainMenu(),
     libraryPage(),
     favoritePage(),
-    settingsPg()
+    settingsPg(),
+    searchCerpen(),
   ];
 
   final PageStorageBucket bucket = PageStorageBucket();
@@ -40,7 +42,12 @@ class _HomePgState extends State<HomePg> {
           NetworkImage("https://i.postimg.cc/q7h16vPh/Group-1.png"),
           color: Color(0xFF4F4F4F),
         ),
-        onPressed: () {},
+        onPressed: () {
+          setState(() {
+            currentScreen = searchCerpen();
+            currentTab = 4;
+          });
+        },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
