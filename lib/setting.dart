@@ -12,6 +12,7 @@ class settingsPg extends StatefulWidget {
 
 class _settingsPgState extends State<settingsPg> {
 
+  //List<double> savefont = [];
   double value = saveset[0].currentvaluefont;
 
   @override
@@ -76,15 +77,18 @@ class _settingsPgState extends State<settingsPg> {
                           ),
                         ),
                       ),
-                      Slider(
-                        value: value,
-                        min: 12,
-                        max: 30,
-                        divisions: 9,
-                        inactiveColor: Color(0xFFC4C4C4),
-                        activeColor: Color(0xFFD3E49C),
-                        label: value.toString(),
-                        onChanged: (value) => setState(() => this.value = value),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal : MediaQuery.of(context).size.width/10),
+                        child: Slider(
+                          value: value,
+                          min: 12,
+                          max: 30,
+                          divisions: 9,
+                          inactiveColor: Color(0xFFC4C4C4),
+                          activeColor: Color(0xFFD3E49C),
+                          label: value.toString(),
+                          onChanged: (value) => setState(() => this.value = value),
+                        ),
                       ),
                     ],
                   ),

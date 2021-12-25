@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'cerpen/cerpens.dart';
+import 'library.dart';
+
 class favoritePage extends StatelessWidget {
   const favoritePage({Key? key}) : super(key: key);
 
@@ -53,13 +56,11 @@ class favoritePage extends StatelessWidget {
               crossAxisSpacing: 15,
               padding: EdgeInsets.all(20),
               childAspectRatio: 5 / 8,
-              children: [
-                listFavorite(),
-                listFavorite(),
-                listFavorite(),
-                listFavorite(),
-                listFavorite(),
-              ],
+              children: cerpens.map((cerpen) => listLibrary(
+                  url: cerpen.urlimg,
+                  title: cerpen.title,
+                  fuller: cerpen.fullcerpen
+              )).toList(),
             ),
           ),
         ),
