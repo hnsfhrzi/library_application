@@ -14,6 +14,7 @@ class searchCerpen extends StatefulWidget {
 
 class _searchCerpenState extends State<searchCerpen> {
   final searchcont = TextEditingController();
+  List<Cerpen> titlesearch = [];
   bool isExecuted = false;
 
   @override
@@ -31,7 +32,7 @@ class _searchCerpenState extends State<searchCerpen> {
         title: TextField(
           onChanged: (value) {
             setState(() {
-              cerpens = cerpens.where((element) => element.title.contains(value.toLowerCase())).toList();
+              titlesearch = cerpens.where((element) => element.title.contains(value.toLowerCase())).toList();
             });
           },
           controller: searchcont,
@@ -42,7 +43,9 @@ class _searchCerpenState extends State<searchCerpen> {
         ),
         backgroundColor: Colors.white60,
       ),
-      body: Container(
+      body: searchcont.text.isNotEmpty&&titlesearch.isEmpty ?
+      Center(child: Text('No Result Found'))
+      : Container(
           width: MediaQuery.of(context).size.width,
           child: GridView.count(
             //physics: NeverScrollableScrollPhysics(),
@@ -51,11 +54,13 @@ class _searchCerpenState extends State<searchCerpen> {
             crossAxisSpacing: 15,
             padding: EdgeInsets.all(20),
             childAspectRatio: 5 / 8,
-            children: cerpens.map((cerpen) => listLibrary(
+            children: searchcont.text.isNotEmpty ? cerpens.map((cerpen) => listLibrary(
                 url: cerpen.urlimg,
                 title: cerpen.title,
                 fuller: cerpen.fullcerpen
-            )).toList(),
+            )).toList() : titlesearch.map((cerpen) => listLibrary(
+                url: cerpen.urlimg, title: cerpen.title, fuller: cerpen.fullcerpen
+            )).toList()
           ),
         ),
       );
